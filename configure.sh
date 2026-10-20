@@ -5,7 +5,7 @@
 sed -i 's/192.168.1.1/192.168.50.1/g' package/base-files/files/bin/config_generate 
 
 # Hello World
-echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
+grep -q '^src-git helloworld ' feeds.conf.default || echo 'src-git helloworld https://github.com/fw876/helloworld' >>feeds.conf.default
 
 # passwall
 echo "src-git passwall_packages https://github.com/Openwrt-Passwall/openwrt-passwall-packages.git;main" >> feeds.conf.default
